@@ -3,6 +3,7 @@
 # this demo serves up.
 class CalendarController < ApplicationController
   def index
+     @events = Event.all
   end
 
 end

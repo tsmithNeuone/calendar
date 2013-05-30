@@ -7,7 +7,6 @@
   <%= javascript_include_tag "jquery.rest.js" %>
   <%= javascript_include_tag "rails.js" %>
   <%= javascript_include_tag "application.js" %>
-  
   <!-- these are needed for the calendar. -->
   <%= javascript_include_tag "fullcalendar.js" %>
   
@@ -15,36 +14,6 @@
   
   <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
   
-  <script> 
-	$(document).ready(function() {
-    // page is now ready, initialize the calendar...
-	    $('#calendar').fullCalendar({
-	        // put your options and callbacks here
-			 // header: {
-				 // left: 'today',
-				 // center: 'prev,title,next',
-				 // right: 'month,basicDay'
-			// }
-	        dayClick: function(date, allDay, jsEvent, view) {
-
-        if (allDay) {
-            alert('Clicked on the entire day: ' + date);
-        }else{
-            alert('Clicked on the slot: ' + date.day);
-        }
-
-        alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-
-        alert('Current view: ' + view.name);
-
-        // change the day's background color just for fun
-    		$(this).css('background-color', 'red');
-
-    }
-	    })
-
-	});
-	</script>
   
 </head>
 <body>
