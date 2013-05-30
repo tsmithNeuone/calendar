@@ -1,0 +1,42 @@
+<%= link_to "new event", new_event_path %>
+
+<p>Test1</p>
+
+
+	
+<div id='calendar'><script> 
+	$(document).ready(function() {
+    // page is now ready, initialize the calendar...
+	    $('#calendar').fullCalendar({
+	        // put your options and callbacks here
+			// header: {
+				// left: 'today',
+				// center: 'prev,title,next',
+				// right: 'month,basicDay'
+			// }
+			weekends: false;
+	        dayClick: function(date, allDay, jsEvent, view) {
+
+        if (allDay) {
+            alert('Clicked on the entire day: ' + date);
+        }else{
+            alert('Clicked on the slot: ' + date.day);
+        }
+
+        alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+
+        alert('Current view: ' + view.name);
+
+        // change the day's background color just for fun
+        alert($(this).css('background-color'))
+        	if($(this).css('background-color')=== css('color', 'white')){
+    		$(this).css('background-color', 'red');
+        }
+
+    }
+	    })
+
+	});
+</script></div>
+<p>Test2
+	</p>
