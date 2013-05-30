@@ -95,7 +95,7 @@ var rtlDefaults = {
 	header: {
 		left: 'next,prev today',
 		center: 'title',
-		right: 'month, basicWeek, baasicDay'
+		right: 'month, basicWeek, basicDay'
 	},
 	buttonText: {
 		prev: "<span class='fc-text-arrow'>&rsaquo;</span>",

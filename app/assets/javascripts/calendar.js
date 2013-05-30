@@ -7,9 +7,15 @@ $(document).ready(function() {
         weekends: true,
         selectable: true,
         unselectAuto: true,
+        height: 650,
         dayClick: function() {
         	alert('a day has been clicked!');
-    	}
+    	},
+    	slotMinutes: 30,  
+   		eventSources: [{  
+    		url: '/events',  
+   		}]
+    	
     });
 
 });
