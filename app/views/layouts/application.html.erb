@@ -1,7 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html>
 <head>
   <title>Calendar</title>  
-<<<<<<< HEAD
   <%= stylesheet_link_tag "fullcalendar.css" %>
   <%= stylesheet_link_tag "application.css" %>
   <%= javascript_include_tag "jquery.js" %>
@@ -11,10 +10,7 @@
   <!-- these are needed for the calendar. -->
   <%= javascript_include_tag "fullcalendar.js" %>
   
-=======
    <%= stylesheet_link_tag    "application", media: "all" %>
-    <%= javascript_include_tag "application" %>
->>>>>>> d122cacb1e775c5c1b6d0919b46327f7f810aa63
   <%= csrf_meta_tag %>  
   
   <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
@@ -22,11 +18,6 @@
   
 </head>
 <body>
-<<<<<<< HEAD
-
-<%= yield %>
-
-=======
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
@@ -61,6 +52,5 @@
 <%= yield %>
 
 
->>>>>>> d122cacb1e775c5c1b6d0919b46327f7f810aa63
 </body>
 </html>
