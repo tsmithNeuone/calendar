@@ -23,8 +23,7 @@
   <% if user_signed_in? %>
     Signed in as <%= current_user.email %>. Not you?
     <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+     
   <% end %>
 </div>
 </head>
@@ -46,23 +45,25 @@
       <!-- Everything you want hidden at 940px or less, place within here -->
       <div class="nav-collapse">
         <!-- .nav, .navbar-search, .navbar-form, etc -->
-        <ul class= "nav">
-      <li></li>
+       
+         <% if user_signed_in? %>
+            <ul class= "nav">
+         <li></li>
       <li><%= link_to 'New Event', new_event_path %></li>
       <li><%= link_to 'All Events', events_path %></li>
        <li><%= link_to 'Back to Calendar', calendar_index_path %></li>
-       </ul>
-       
+        </ul>
+       <% end %>
        <ul class="nav pull-right" id="main-menu-right">
          <td>
          	<% if user_signed_in? %>
-         		<a class="btn btn-danger" href=<%= link_to "Sign out", destroy_user_session_path, :method => :delete %></a>
+         		<a class="btn btn-danger" <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></a>
   			<% else %>
   			<ul class= "nav">
       			<li></li>
-      			<li><%= link_to "Sign up", new_user_registration_path %></li>
-      			<li><%= link_to "sign in", new_user_session_path %></li>
-   			</ul>
+       			<td><a class="btn btn-primary" <%= link_to "Sign Up", new_user_registration_path %></a></td>
+      			<td><a class="btn btn-primary" <%= link_to "Sign In", new_user_session_path %></a></td>
+  			</ul>
   			<% end %>
      	</td>
         </ul>

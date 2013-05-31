@@ -4,5 +4,32 @@
 <% if user_signed_in? %>
 <div id='calendar'></div>
 <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+ <center><h1>Welcome To the Calendar App</h1>
+    <h3>Sign In To Your View Calendar </h3>
+        
+ <%= form_for("user", :url => user_session_path) do |f| %>
+   <div class="field">
+    <%= f.label :email%><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+   <%= f.check_box :remember_me %><br />
+ <%= f.label :remember_me %>
+
+  <div class="actions">
+    <%= f.submit 'Sign in' %>
+    <br>
+  <%= link_to "Forgot your password?", new_password_path('user') %>
+  </div>
+  <br>
+    <br>
+  <h4>Not a user? click here to sign up </h4><td><a class="btn btn-primary" <%= link_to "Sign Up", new_user_registration_path %></a></td>
+    
+  </center> 
 <% end %>
+<% end %>
+

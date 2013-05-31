@@ -3,13 +3,21 @@
 # this demo serves up.
 class CalendarController < ApplicationController
   def index
-    @events = Event.scoped
-    @events = Event.between(params['start'], params['end']) if (params['start'] && params['end'])
-    respond_to do |format| 
+      if user_signed_in?
+      @user = current_user
+      @events = @user.events
+      @events = @events.after(params['start']) if (params['start'])
+      @events = @events.before(params['end']) if (params['end'])
+    else
+      @events = Event.scoped
+      @events = @events.after(params['start']) if (params['start'])
+      @events = @events.before(params['end']) if (params['end'])
+    end
+    respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @events } 
-    end 
-  end 
+      format.json { render :json => @events }
+    end
+  end
 
 
-end
+end 
