@@ -15,10 +15,13 @@
   
   <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
   
-  
+  <% if notice %>
    <p class="notice"><%= notice %></p>
+   <% end %>
+    <% if alert %>
    <p class="alert"><%= alert %></p>
-   
+    <% end %>
+    
    <div id="user_nav">
   <% if user_signed_in? %>
     Signed in as <%= current_user.email %>. Not you?
@@ -61,7 +64,7 @@
   			<% else %>
   			<ul class= "nav">
       			<li></li>
-       			<td><a class="btn btn-primary" <%= link_to "Sign Up", new_user_registration_path %></a></td>
+       			<td><a class="btn btn-success" <%= link_to "Sign Up", new_user_registration_path %></a></td>
       			<td><a class="btn btn-primary" <%= link_to "Sign In", new_user_session_path %></a></td>
   			</ul>
   			<% end %>

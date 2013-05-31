@@ -1,6 +1,9 @@
-<h1>Listing events</h1>
-
-<table>
+<section id="tables">
+  <div class="page-header">
+<h1>All events</h1>
+ </div>
+<table class="table table-bordered table-striped table-hover">
+   <thead>
   <tr>
     <th>Title</th>
     <th>Starts at</th>
@@ -11,7 +14,8 @@
     <th></th>
     <th></th>
   </tr>
-
+</thead>
+    <tbody>
 <% @events.each do |event| %>
   <tr>
     <td><%= event.title %></td>
@@ -24,9 +28,15 @@
     <td><%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
+</section>
+
+
+
 
 <br />
-<%= link_to 'view calendar', calendar_index_path %>
+<td><a class="btn btn-primary" <%= link_to 'View Calendar', calendar_index_path %></a></td>
 <br/>
-<%= link_to 'New Event', new_event_path %>
+<br>
+<td><a class="btn btn-primary" <%= link_to 'New Event', new_event_path %></a></td>

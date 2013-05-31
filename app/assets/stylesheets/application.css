@@ -12,3 +12,6 @@
  *= require_tree .
  *= require fullcalendar
  */
+body {
+	padding: 50px;
+}
