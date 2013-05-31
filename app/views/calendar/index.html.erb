@@ -1,5 +1,8 @@
 </br>
 </br>
 </br>
-
+<% if user_signed_in? %>
 <div id='calendar'></div>
+<% else %>
+    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+<% end %>

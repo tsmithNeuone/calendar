@@ -16,6 +16,17 @@
   <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
   
   
+   <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
+   
+   <div id="user_nav">
+  <% if user_signed_in? %>
+    Signed in as <%= current_user.email %>. Not you?
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+  <% end %>
+</div>
 </head>
 <body>
 <div class="navbar navbar-fixed-top">
@@ -43,7 +54,17 @@
        </ul>
        
        <ul class="nav pull-right" id="main-menu-right">
-         <td><a class="btn btn-danger" href="#">Sign Out</a></td>
+         <td>
+         	<% if user_signed_in? %>
+         		<a class="btn btn-danger" href=<%= link_to "Sign out", destroy_user_session_path, :method => :delete %></a>
+  			<% else %>
+  			<ul class= "nav">
+      			<li></li>
+      			<li><%= link_to "Sign up", new_user_registration_path %></li>
+      			<li><%= link_to "sign in", new_user_session_path %></li>
+   			</ul>
+  			<% end %>
+     	</td>
         </ul>
       </div>
      </div>
