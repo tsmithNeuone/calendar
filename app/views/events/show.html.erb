@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<<<<<<< HEAD
 
 <p>
   <b>Title:</b>
@@ -28,3 +29,37 @@
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
+=======
+<br>
+<br>
+<br>
+<section id="tables">
+  <div class="page-header">
+    <h1><%= @event.title %></h1>
+  </div>
+  
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Starts at: </th>
+        <th>Ends at:</th>
+        <th>All day:</th>
+        <th>Description:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @event.starts_at %></td>
+        <td><%= @event.ends_at %></td>
+        <td> <%= @event.all_day %></td>
+        <td><%= @event.description %></td>
+      </tr>
+     
+    </tbody>
+  </table>
+</section>
+
+
+<td><a class="btn btn-primary btn-large" <%= link_to 'Edit', edit_event_path(@event) %></a></td>
+<td><a class="btn btn-primary btn-large" <%= link_to 'All Events', events_path %></a></td>
+>>>>>>> d122cacb1e775c5c1b6d0919b46327f7f810aa63
