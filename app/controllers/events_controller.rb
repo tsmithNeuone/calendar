@@ -20,6 +20,7 @@ class EventsController < ApplicationController
     end
 
     respond_to do |format|
+     
       format.html # index.html.erb
       format.xml  { render :xml => @events }
       format.js  { render :json => @events }
@@ -59,9 +60,11 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
     @event.user = current_user
-
+    @user= current_user
+   
     respond_to do |format|
       if @event.save
+         Notifier.gmail_message(current_user.email).deliver
         format.html { redirect_to(@event, :notice => 'Event was successfully created.') }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
       else

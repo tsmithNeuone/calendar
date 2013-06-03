@@ -4,6 +4,7 @@ gem 'rails', '3.2.13'
 
 gem 'bootstrap-sass', '2.1'
 gem 'bootswatch-rails'
+gem "ice_cube", "~> 0.10.1"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -24,6 +25,7 @@ end
 
 gem 'jquery-rails'
 gem 'devise'
+gem 'mail'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
