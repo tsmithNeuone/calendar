@@ -1,4 +1,7 @@
 Calendar::Application.routes.draw do
+  resources :contacts
+
+
   devise_for :users
  
   resources :events

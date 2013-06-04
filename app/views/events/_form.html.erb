@@ -12,33 +12,42 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
+    <br /><%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :starts_at %><br />
+    <br /><%= f.label :starts_at %>
     <div class="starts_at_date_field">
     	<%= f.date_select :starts_at %>
 	</div>
-    <%= f.time_select :starts_at, :ignore_date => true %>
+    <%= f.time_select :starts_at, :ignore_date => true,:ampm => true, :minute_step => 15 %>
   </div>
   <div class="field">
-    <%= f.label :ends_at %><br />
+    <br /><%= f.label :ends_at %>
     <div class="ends_at_date_field">
     	<%= f.date_select :ends_at %>
     </div>
-    <%= f.time_select :ends_at, :ignore_date => true %>
+    <%= f.time_select :ends_at, :ignore_date => true, :ampm => true, :minute_step => 15 %>
   </div>
   <div class="field">
-    <%= f.label :all_day %><br />
+    <br /><%= f.label :all_day %>
     <%= f.check_box :all_day %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
+    <br /><%= f.label :description %>
     <%= f.text_area :description %>
   </div>
+  
+  <div id="contact_fields">
+  	<%= f.fields_for :contacts, :remote => true do |builder| %>
+  		<%= render 'contact_fields', f: builder %>
+	<% end %>
+	<%= link_to_add_fields "Add Contact", f, :contacts%><br>
+  </div>
+	<p>
   <div class="actions">
   	<%= f.submit 'Create Event', class: "btn btn-primary" %>
  	
   </div>
+  </p>
 <% end %>

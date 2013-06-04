@@ -10,7 +10,7 @@ class EventsController < ApplicationController
     # I'll eventually do that to make the demo a little cleaner.
     if user_signed_in?
       @user = current_user
-      @events = @user.events
+      @events = @user.events.order("events.starts_at ASC")
       @events = @events.after(params['start']) if (params['start'])
       @events = @events.before(params['end']) if (params['end'])
     else
@@ -31,7 +31,7 @@ class EventsController < ApplicationController
   # GET /events/1.xml
   def show
     @event = Event.find(params[:id])
-
+    @contacts = @event.contacts
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @event }
@@ -43,7 +43,7 @@ class EventsController < ApplicationController
   # GET /events/new.xml
   def new
     @event = Event.new
-
+    @contact = @event.contacts.build
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @event }

@@ -1,6 +1,6 @@
 <p>Hello <%= @user%></p> 
 <p>Your event has been created!</p>
 <p>Event Details</p>
-<p>Start Time : <%= @event.starts_at%><p>
-<p>End Time : <%= @event.ends_at%><p>
+<p>Start Time : <%= @event.starts_at.strftime("%A, %B %d at %I:%M %p")%><p>
+<p>End Time : <%= @event.ends_at.strftime("%A, %B %d at %I:%M %p")%><p>
 <p>Event Description : <%= @event.description%><p>

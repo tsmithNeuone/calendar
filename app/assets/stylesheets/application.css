@@ -16,3 +16,7 @@
 body {
 	padding: 50px;
 }
+#event_description {
+	height: 100px;
+	width: 400px;
+}
