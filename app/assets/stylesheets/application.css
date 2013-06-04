@@ -20,9 +20,8 @@ body {
 	height: 100px;
 	width: 400px;
 }
+
 #create_event_dialog {
-}
-.modal, .modal.fade.in {
 	position: fixed;
-  top: 10%;
+  bottom: 25%;
  }
