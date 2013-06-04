@@ -1,0 +1,12 @@
+<%= form_for event, remote: true do |f| %>
+  <%= f.submit "Update" %>
+  <%= f.label :title, event.title %>
+  <%= f.label :starts_at, event.starts_at %>
+  <%= f.label :ends_at, event.ends_at %>
+  <%= f.label :all_day, event.all_day %>
+  <%= f.label :description, event.description %>
+  <td><a class="btn btn-primary" <%= link_to 'Edit', edit_event_path(@event) %></a></td>
+  <%= link_to "(remove)", task, method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
+<% end %>
+
+

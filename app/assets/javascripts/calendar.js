@@ -8,6 +8,7 @@ $(document).ready(function() {
         selectable: true,
         unselectAuto: true,
         height: 650,
+        editable: true,
         select: function(date) {
 			$("#create_event_dialog").show().append(date);
 			$("#event_starts_at_1i").val(date.getFullYear());

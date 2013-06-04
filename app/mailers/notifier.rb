@@ -7,7 +7,8 @@ class Notifier < ActionMailer::Base
   #
  def gmail_message(user, event)
    @event = event
- 
+   @user = user
+   
    mail(:to => user, :subject => "Event Reminder", :from => "calendarneuone@gmail.com")
     
   end
