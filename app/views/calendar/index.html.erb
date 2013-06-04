@@ -1,13 +1,15 @@
 <% if user_signed_in? %>
-<div id='calendar'></div>
-<div id = "create_event_dialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-  <div id = "create_event">
-  	<%= render :partial => '/events/form', :event => Event.new%>
-  	
-  </div>
-</div>
+	<div id='calendar'></div>
+	<div id = "create_event_dialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			
+	    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> 
+	    	<h3 id="myModalLabel">Add Event</h3>
+	  		<div id = "create_event">
+	  			<%= render :partial => '/events/form', :event => Event.new%>
+	  		</div>
+		</div>
+	</div>
 <% else %>
  <center><h1>Welcome To The Calendar App</h1>
     <h3>Sign in to view your calendar </h3>
