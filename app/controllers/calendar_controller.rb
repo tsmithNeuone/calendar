@@ -4,6 +4,7 @@
 class CalendarController < ApplicationController
   def index
       if user_signed_in?
+        @event = Event.new
       @user = current_user
       @events = @user.events
       @events = @events.after(params['start']) if (params['start'])
@@ -18,6 +19,12 @@ class CalendarController < ApplicationController
       format.json { render :json => @events }
     end
   end
-
+  def new
+    @event = Event.new
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @event }
+    end
+  end
 
 end 

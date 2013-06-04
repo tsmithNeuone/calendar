@@ -5,10 +5,10 @@ class Notifier < ActionMailer::Base
   #
   #   en.notifier.gmail_message.subject
   #
- def gmail_message(user)
+ def gmail_message(user, event)
+   @event = event
  
-    mail(:to => user, :subject => "Event Reminder", :from => "calendarneuone@gmail.com")
-   
-  
+   mail(:to => user, :subject => "Event Reminder", :from => "calendarneuone@gmail.com")
+    
   end
 end

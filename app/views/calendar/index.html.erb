@@ -1,5 +1,11 @@
 <% if user_signed_in? %>
 <div id='calendar'></div>
+<div id = "create_event_dialog" style ="display:none;">
+  <div id = "create_event">
+  	<%= render :partial => '/events/form', :event => Event.new%>
+  	
+  </div>
+</div>
 <% else %>
  <center><h1>Welcome To The Calendar App</h1>
     <h3>Sign in to view your calendar </h3>
@@ -15,12 +21,12 @@
   </div>
   <div class="field">
    <%= f.check_box :remember_me %><br />
- <%= f.label :remember_me %>
-</div>
+ 	<%= f.label :remember_me %>
+	</div>
   <div class="actions">
   	<%= f.submit 'Sign in', class: "btn btn-primary btn-large" %><!--follbutton-->
       
-    
+     
    </div>
     <br>
   <%= link_to "Forgot your password?", new_password_path('user') %>

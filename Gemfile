@@ -26,6 +26,7 @@ end
 gem 'jquery-rails'
 gem 'devise'
 gem 'mail'
+gem 'jquery-qtip2-rails'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -8,9 +8,18 @@ $(document).ready(function() {
         selectable: true,
         unselectAuto: true,
         height: 650,
-        dayClick: function() {
-        	alert('a day has been clicked!');
-    	},
+        select: function(date) {
+			$("#create_event_dialog").show().append(date);
+			$("#event_starts_at_1i").val(date.getFullYear());
+			$("#event_starts_at_2i").val((date.getMonth() + 1));
+			$("#event_starts_at_3i").val(date.getDate());
+			$("#event_ends_at_1i").val(date.getFullYear());
+			$("#event_ends_at_2i").val((date.getMonth() + 1));
+			$("#event_ends_at_3i").val(date.getDate());
+			$(".ends_at_date_field").hide();
+			$(".starts_at_date_field").hide();
+	    	
+         },
     	slotMinutes: 30,  
    		eventSources: [{  
     		url: '/events',  
