@@ -15,6 +15,8 @@
 //= require_tree .
 //= require fullcalendar
 //= require jquery.qtip.js
+//= require bootstrap-modal
+//= require bootstrap-modalmanager
 
 jQuery.ajaxSetup({ 
   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}

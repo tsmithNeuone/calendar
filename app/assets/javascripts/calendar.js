@@ -10,7 +10,7 @@ $(document).ready(function() {
         height: 650,
         editable: true,
         select: function(date) {
-			$("#create_event_dialog").show();
+			$("#create_event_dialog").modal('show');
 			$("#event_starts_at_1i").val(date.getFullYear());
 			$("#event_starts_at_2i").val((date.getMonth() + 1));
 			$("#event_starts_at_3i").val(date.getDate());
@@ -19,6 +19,7 @@ $(document).ready(function() {
 			$("#event_ends_at_3i").val(date.getDate());
 			$(".ends_at_date_field").hide();
 			$(".starts_at_date_field").hide();
+			
 	    	
          },
     	slotMinutes: 30,  

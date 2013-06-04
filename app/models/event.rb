@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
   belongs_to :user
   has_many :contacts, :dependent => :destroy
   accepts_nested_attributes_for :contacts, allow_destroy: true
+  validates_associated :contacts
   
   scope :before, lambda {|end_time| {:conditions => ["ends_at < ?", Event.format_date(end_time)] }}
   scope :after, lambda {|start_time| {:conditions => ["starts_at > ?", Event.format_date(start_time)] }}
