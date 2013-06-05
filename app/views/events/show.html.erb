@@ -40,7 +40,7 @@
 <p>
 <td><a class="btn btn-primary" <%= link_to 'New Event', new_event_path %></a></td>
 <td><a class="btn btn-primary" <%= link_to 'Edit', edit_event_path(@event) %></a></td>
-<td><a class="btn btn-primary" <%= link_to 'All Events', events_path %></a></td>
+<td><a class="btn btn-primary" <%= link_to 'Destroy', event_path, :confirm => 'Are you sure?', :method => :delete %></a></td>
 <br>
 <br>
 <td><a class="btn btn-primary" <%= link_to 'Back to Calendar', calendar_index_path %></a></td>

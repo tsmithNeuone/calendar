@@ -54,9 +54,8 @@
          <li></li>
       <li><%= link_to 'New Event', new_event_path %></li>
       <li><%= link_to 'All Events', events_path %></li>
-  		<% if not request.path == '/calendar/index' %>
-       	<li><%= link_to 'Back to Calendar', calendar_index_path %></li>
-       <% end %>
+      <% if not (request.path == '/calendar/index') or not (request.path == calendar_index_path )  %>
+       <li><%= link_to 'Back to Calendar', calendar_index_path %> </li> <%end%>
         </ul>
        <% end %>
        <ul class="nav pull-right" id="main-menu-right">
