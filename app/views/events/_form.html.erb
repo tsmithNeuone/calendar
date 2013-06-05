@@ -37,6 +37,11 @@
     <br /><%= f.label :description %>
     <%= f.text_area :description %>
   </div>
+  <div id="recurrence_selector">
+  	<%= f.label :schedule, 'Repeat Event?'%>
+	<%= f.select_recurring :schedule %>
+			
+  </div>
   
   <div id="contact_fields">
   	<%= f.fields_for :contacts, :remote => true do |builder| %>
@@ -44,10 +49,10 @@
 	<% end %>
 	<%= link_to_add_fields "Add Contact", f, :contacts%><br>
   </div>
+  
 	<p>
-  <div class="actions">
-  	<%= f.submit 'Create Event', class: "btn btn-primary" %>
- 	
-  </div>
+  	<div class="actions">
+  		<%= f.submit 'Create Event', class: "btn btn-primary" %>
+  	</div>
   </p>
 <% end %>

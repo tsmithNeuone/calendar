@@ -93,6 +93,12 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
+    recurring_select (1.0.2)
+      coffee-rails (>= 3.1)
+      ice_cube (>= 0.8)
+      jquery-rails
+      rails (>= 3.1)
+      sass-rails (>= 3.1)
     sass (3.2.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -125,11 +131,12 @@ DEPENDENCIES
   bootswatch-rails
   coffee-rails (~> 3.2.1)
   devise
-  ice_cube (~> 0.10.1)
+  ice_cube
   jquery-qtip2-rails
   jquery-rails
   mail
   rails (= 3.2.13)
+  recurring_select
   sass-rails (~> 3.2.3)
   sqlite3
   uglifier (>= 1.0.3)

@@ -17,6 +17,7 @@
 //= require jquery.qtip.js
 //= require bootstrap-modal
 //= require bootstrap-modalmanager
+//= require recurring_select
 
 jQuery.ajaxSetup({ 
   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
@@ -32,4 +33,10 @@ jQuery.fn.submitWithAjax = function() {
 
 $(document).ready(function() {
   $("#new_event").submitWithAjax();
+})
+
+$('#recurrence_selector').on('show', function(e) {
+    // ugly codes
+    alert('it was shown');
+    $("#create_event_dialog").modal('hide');
 })

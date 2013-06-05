@@ -25,7 +25,11 @@ $(document).ready(function() {
     	slotMinutes: 30,  
    		eventSources: [{  
     		url: '/events',  
-   		}]
+   		}],
+   		eventRender: function(event, element, view)
+	   	{
+	        element.qtip({ content: "My Event: " + event.description });
+	    }
     	
     });
 

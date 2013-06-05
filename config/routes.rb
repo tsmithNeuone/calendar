@@ -1,13 +1,8 @@
 Calendar::Application.routes.draw do
   resources :contacts
-
-
   devise_for :users
- 
   resources :events
-
   get "calendar/index"
-  
   root :to => "calendar#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
