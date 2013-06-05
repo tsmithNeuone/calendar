@@ -64,6 +64,7 @@ class EventsController < ApplicationController
    
     respond_to do |format|
       if @event.save
+        
         Notifier.gmail_message(current_user.email, @event).deliver
         format.js   {  }
         format.html { redirect_to('/calender/index', :notice => 'Event was successfully created.') }
