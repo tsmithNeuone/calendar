@@ -1,58 +1,79 @@
 <%= form_for(@event, remote: true)  do |f| %>
-  <% if @event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
-      <ul>
-      <% @event.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <br /><%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <br /><%= f.label :starts_at %>
-    <div class="starts_at_date_field">
-    	<%= f.date_select :starts_at %>
-	</div>
-    <%= f.time_select :starts_at, :ignore_date => true,:ampm => true, :minute_step => 15 %>
-  </div>
-  <div class="field">
-    <br /><%= f.label :ends_at %>
-    <div class="ends_at_date_field">
-    	<%= f.date_select :ends_at %>
-    </div>
-    <%= f.time_select :ends_at, :ignore_date => true, :ampm => true, :minute_step => 15 %>
-  </div>
-  <div class="field">
-    <br /><%= f.label :all_day %>
-    <%= f.check_box :all_day %>
-  </div>
-  <div class="field">
-    <br /><%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-  <div id="recurrence_selector">
-  	<%= f.label :schedule, 'Repeat Event?'%>
-	<%= f.select_recurring :schedule %>
-			
-  </div>
-  
-  <div id="contact_fields">
-  	<%= f.fields_for :contacts, :remote => true do |builder| %>
-  		<%= render 'contact_fields', f: builder %>
+	<% if @event.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+			<ul>
+      			<% @event.errors.full_messages.each do |msg| %>
+        		<li><%= msg %></li>
+      		<% end %>
+      		</ul>
+    	</div>
 	<% end %>
-	<%= link_to_add_fields "Add Contact", f, :contacts%><br>
-  </div>
-  
 	<p>
-  	<div class="actions">
-  		<%= f.submit 'Create Event', class: "btn btn-primary" %>
-  	</div>
-  </p>
+		<div class="field">
+		    <%= f.label :title %>
+		    <%= f.text_field :title %>
+		</div>
+	</p>
+	<div class="field">
+		<p>
+		    <%= f.label :starts_at %>
+		    <div class="starts_at_date_field">
+		    	<%= f.date_select :starts_at %>
+			</div>
+		    <%= f.time_select :starts_at, :ignore_date => true,:ampm => true, :minute_step => 15 %>
+		</p>
+	</div>
+	<div class="field">
+    <%= f.label :ends_at %>
+    <p>
+		<div class="ends_at_date_field">
+    		<%= f.date_select :ends_at %>
+    	</div>
+    	<%= f.time_select :ends_at, :ignore_date => true, :ampm => true, :minute_step => 15 %>
+    </p>
+	</div>
+	<p>
+		<div class="field">
+			<%= f.check_box :all_day %>
+		    <%= f.label :all_day, :class => "checkbox inline" %>
+		</div>
+	</p>
+	<p>
+		<div class="field">
+	    	<%= f.label :description %>
+	    	<%= f.text_area :description %>
+		</div>
+	</p>
+	<p>
+	  	<div class="field">
+	    	<%= f.label :recurring %>
+	    	<%= f.select :recurring, ['None', 'Daily', 'Daily - Weekdays only', 'Weekly', 'Bi-weekly', 'Monthly', 'Quarterly', 'Semi-Anually', 'Annually'], :selected => 'None'  %>
+		</div>
+	</p>
+	<p>
+		<div class="field">
+			<%= f.check_box :ignore_holidays %>
+	    	<%= f.label :ignore_holidays, :class => "checkbox inline" %>
+		</div>
+	</p>
+	<p>
+	  <div id="contact_fields">
+	  	<%= f.fields_for :contacts, :remote => true do |builder| %>
+	  		<%= render 'contact_fields', f: builder %>
+		<% end %>
+		<%= link_to_add_fields "Add Contact", f, :contacts%><br>
+	  </div>
+	</p>
+	<p>
+		<div class="field">
+			<%= f.check_box :notify_contacts %>
+	    	<%= f.label :notify_contacts, :class => "checkbox inline" %>
+		</div>
+	</p>
+	<p>
+	  	<div class="actions">
+	  		<%= f.submit 'Create Event', class: "btn btn-primary" %>
+	  	</div>
+	</p>
 <% end %>

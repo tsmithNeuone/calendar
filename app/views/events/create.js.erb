@@ -5,3 +5,6 @@ $('#create_event_dialog').hide();
 $('#event_title').val("");
 $('#event_description').val("");
 $("#create_event_dialog").modal('hide');
+<% if request.path != '/'%>
+	window.location = '/'
+<% end %>

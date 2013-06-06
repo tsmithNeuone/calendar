@@ -12,7 +12,6 @@
  *= require_tree .
  *= require fullcalendar
  *= require jquery.qtip.css
- *= require recurring_select
  */
 body {
 	padding: 60px 50px 50px 50px;

@@ -28,7 +28,7 @@ $(document).ready(function() {
    		}],
    		eventRender: function(event, element, view)
 	   	{
-	        element.qtip({ content: "My Event: " + event.description });
+	        element.qtip({ content: "Description: " + event.description });
 	    }
     	
     });

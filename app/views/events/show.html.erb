@@ -8,7 +8,7 @@
       <tr>
         <th>Starts at: </th>
         <th>Ends at:</th>
-        <th>All day:</th>
+        <th>Repeats:</th>
         <th>Description:</th>
       </tr>
     </thead>
@@ -16,8 +16,13 @@
       <tr>
         <td><%= @event.starts_at.strftime("%A, %B %d at %I:%M %p") %></td>
         <td><%= @event.ends_at.strftime("%A, %B %d at %I:%M %p") %></td>
-        <td> <%= @event.all_day %></td>
+        <td><%= @event.recurring %>
+        	<%  if @event.ignore_holidays %>
+        		, Ignore Holidays
+        	<% end %>
+        </td>
         <td><%= @event.description %></td>
+        
       </tr>
      
     </tbody>

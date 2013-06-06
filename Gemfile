@@ -4,8 +4,7 @@ gem 'rails', '3.2.13'
 
 gem 'bootstrap-sass', '2.1'
 gem 'bootswatch-rails'
-gem 'ice_cube'
-gem 'recurring_select'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
