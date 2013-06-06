@@ -8,7 +8,8 @@
       <tr>
         <th>Starts at: </th>
         <th>Ends at:</th>
-        <th>Repeats:</th>
+        <th>Repeats/Until:</th>
+        <th>Reminder notification:</th>
         <th>Description:</th>
       </tr>
     </thead>
@@ -21,6 +22,7 @@
         		, Ignore Holidays
         	<% end %>
         </td>
+        <td><%if @event.notify_contacts%> Yes <%else%> No <%end%></td>
         <td><%= @event.description %></td>
         
       </tr>
