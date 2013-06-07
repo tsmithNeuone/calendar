@@ -52,6 +52,12 @@
 		</div>
 	</p>
 	<p>
+	  	<div class="field">
+	    	<%= f.label :recurring_ends_at %>
+	    	<%= f.date_select :recurring_ends_at %>
+		</div>
+	</p>
+	<p>
 		<div class="field">
 			<%= f.check_box :ignore_holidays %>
 	    	<%= f.label :ignore_holidays, :class => "checkbox inline" %>

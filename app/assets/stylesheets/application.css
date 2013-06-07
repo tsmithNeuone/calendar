@@ -24,4 +24,5 @@ body {
 #create_event_dialog {
 	position: fixed;
   	bottom: 10%;
+  	width: 800px;
  }

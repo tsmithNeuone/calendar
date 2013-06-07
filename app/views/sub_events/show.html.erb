@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @sub_event.title %>
+</p>
+<p>
+	belongs to:
+	<%= @sub_event.event_id%>
+</p>
+<p>
+  <b>Starts at:</b>
+  <%= @sub_event.starts_at %>
+</p>
+
+<p>
+  <b>Ends at:</b>
+  <%= @sub_event.ends_at %>
+</p>
+
+<p>
+  <b>All day:</b>
+  <%= @sub_event.all_day %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @sub_event.description %>
+</p>
+
+<p>
+  <b>Notify contacts:</b>
+  <%= @sub_event.notify_contacts %>
+</p>
+
+
+<%= link_to 'Edit', edit_sub_event_path(@sub_event) %> |
+<%= link_to 'Back', sub_events_path %>

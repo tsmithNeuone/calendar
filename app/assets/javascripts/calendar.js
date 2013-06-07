@@ -24,7 +24,8 @@ $(document).ready(function() {
          },
     	slotMinutes: 30,  
    		eventSources: [{  
-    		url: '/events',  
+    		url: '/sub_events',
+    		color: 'rgb(255,0,0)',
    		}],
    		eventRender: function(event, element, view)
 	   	{
@@ -32,5 +33,6 @@ $(document).ready(function() {
 	    }
     	
     });
+     $('#calendar').fullCalendar('addEventSource',  '/events');
 
 });

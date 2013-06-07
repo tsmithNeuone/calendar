@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130606164052) do
+ActiveRecord::Schema.define(:version => 20130607145650) do
 
   create_table "contacts", :force => true do |t|
     t.string   "email"
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(:version => 20130606164052) do
     t.boolean  "ignore_holidays"
     t.boolean  "notify_contacts"
     t.date     "recurring_ends_at"
+  end
+
+  create_table "sub_events", :force => true do |t|
+    t.string   "title"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.boolean  "all_day"
+    t.string   "description"
+    t.boolean  "notify_contacts"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "event_id"
   end
 
   create_table "users", :force => true do |t|
