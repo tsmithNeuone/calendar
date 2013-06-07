@@ -4,4 +4,5 @@ Organize all your events with our simple calendar App!
 Just create a user and input all your events to the scheduler and let the app do the rest!
 The calendar app will then remind you when your event is coming up through email for easy reminders.
 
-Credits:Taylor,Gabe,YuJun
+Programmers:Taylor,Gabe,YuJun
+All work belongs to Neubus, Inc.
