@@ -2,10 +2,18 @@ class SubEventsController < ApplicationController
   # GET /sub_events
   # GET /sub_events.json
   def index
-    @sub_events = SubEvent.scoped
+    
 
-    @sub_events = @sub_events.after(params['start']) if (params['start'])
-    @sub_events = @sub_events.before(params['end']) if (params['end'])
+    if user_signed_in?
+      @user = current_user
+      @sub_events = @user.sub_events
+      @sub_events = @sub_events.after(params['start']) if (params['start'])
+      @sub_events = @sub_events.before(params['end']) if (params['end'])
+    else
+      @sub_events = SubEvent.scoped
+      @sub_events = @sub_events.after(params['start']) if (params['start'])
+      @sub_events = @sub_events.before(params['end']) if (params['end'])
+    end
 
 
     respond_to do |format|
@@ -46,7 +54,7 @@ class SubEventsController < ApplicationController
   # POST /sub_events.json
   def create
     @sub_event = SubEvent.new(params[:sub_event])
-
+    @sub_event.user = current_user
     respond_to do |format|
       if @sub_event.save
         format.html { redirect_to @sub_event, notice: 'Sub event was successfully created.' }

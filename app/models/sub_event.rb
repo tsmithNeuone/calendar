@@ -1,6 +1,7 @@
 class SubEvent < ActiveRecord::Base
   attr_accessible :all_day, :description, :ends_at, :notify_contacts, :starts_at, :title
-  belongs_to :event
+  belongs_to :event, :foreign_key => "event_id"
+  belongs_to :user, :foreign_key => "user_id"
   
   scope :before, lambda {|end_time| {:conditions => ["ends_at < ?", SubEvent.format_date(end_time)] }}
   scope :after, lambda {|start_time| {:conditions => ["starts_at > ?", SubEvent.format_date(start_time)] }}

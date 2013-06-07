@@ -9,6 +9,7 @@ $(document).ready(function() {
         unselectAuto: true,
         height: 650,
         editable: true,
+        ignoreTimezone: true,
         select: function(date) {
 			$("#create_event_dialog").modal('show');
 			$("#event_starts_at_1i").val(date.getFullYear());
@@ -17,15 +18,18 @@ $(document).ready(function() {
 			$("#event_ends_at_1i").val(date.getFullYear());
 			$("#event_ends_at_2i").val((date.getMonth() + 1));
 			$("#event_ends_at_3i").val(date.getDate());
-			$(".ends_at_date_field").hide();
-			$(".starts_at_date_field").hide();
+	//		$(".ends_at_date_field").hide();
+	//		$(".starts_at_date_field").hide();
 			
 	    	
          },
+         events: {
+        	currentTimezone: 'America/Chicago' // an option!
+    	},
     	slotMinutes: 30,  
    		eventSources: [{  
     		url: '/sub_events',
-    		color: 'rgb(255,0,0)',
+    		color: 'rgb(230,146,0)',
    		}],
    		eventRender: function(event, element, view)
 	   	{

@@ -12,8 +12,6 @@ class Event < ActiveRecord::Base
 
 
   before_save do
-    
-     
     if self.recurring == 'Daily'
       day = self.starts_at + 1.day
       end_date = self.recurring_ends_at
@@ -26,16 +24,15 @@ class Event < ActiveRecord::Base
         se.notify_contacts = self.notify_contacts
         se.description = self.description
         se.event_id = self.id
+        se.user_id = self.user_id
         se.save
         day = day + 1.day
       end
-    end
-    case 'ets'
-    when 'Daily - Weekdays only'
+    elsif self.recurring == 'Daily - Weekdays only'
       day = self.starts_at + 1.day
       end_date = self.recurring_ends_at
       while day < end_date
-        if not day.saturday? and not day.sunday?
+        if !day.saturday? && !day.sunday?
           se = self.sub_events.build
           se.title = self.title
           se.all_day = self.all_day
@@ -44,35 +41,112 @@ class Event < ActiveRecord::Base
           se.notify_contacts = self.notify_contacts
           se.description = self.description
           se.event_id = self.id
+          se.user_id = self.user_id
           se.save
-          day = day + 1.day
         end
+        day = day + 1.day
       end
+    elsif self.recurring == 'Weekly'
+      day = self.starts_at + 1.week
+      end_date = self.recurring_ends_at
+      while day < end_date
+        se = self.sub_events.build
+        se.title = self.title
+        se.all_day = self.all_day
+        se.starts_at = day
+        se.ends_at = day
+        se.notify_contacts = self.notify_contacts
+        se.description = self.description
+        se.event_id = self.id
+        se.user_id = self.user_id
+        se.save
+        day = day + 1.week
+      end
+    elsif self.recurring == 'Bi-weekly'
+      day = self.starts_at + 2.week
+      end_date = self.recurring_ends_at
+      while day < end_date
+        se = self.sub_events.build
+        se.title = self.title
+        se.all_day = self.all_day
+        se.starts_at = day
+        se.ends_at = day
+        se.notify_contacts = self.notify_contacts
+        se.description = self.description
+        se.event_id = self.id
+        se.user_id = self.user_id
+        se.save
+        day = day + 2.week
+      end
+    elsif self.recurring == 'Monthly'
+      day = self.starts_at + 1.month
+      end_date = self.recurring_ends_at
+      while day < end_date
+        se = self.sub_events.build
+        se.title = self.title
+        se.all_day = self.all_day
+        se.starts_at = day
+        se.ends_at = day
+        se.notify_contacts = self.notify_contacts
+        se.description = self.description
+        se.event_id = self.id
+        se.user_id = self.user_id
+        se.save
+        day = day + 1.month
+      end
+    elsif self.recurring == 'Quarterly'
+      day = self.starts_at + 3.months
+      end_date = self.recurring_ends_at
+      while day < end_date
+        se = self.sub_events.build
+        se.title = self.title
+        se.all_day = self.all_day
+        se.starts_at = day
+        se.ends_at = day
+        se.notify_contacts = self.notify_contacts
+        se.description = self.description
+        se.event_id = self.id
+        se.user_id = self.user_id
+        se.save
+        day = day + 3.months
+      end
+    elsif self.recurring == 'Semi-Anually'
+      day = self.starts_at + 6.months
+      end_date = self.recurring_ends_at
+      while day < end_date
+        se = self.sub_events.build
+        se.title = self.title
+        se.all_day = self.all_day
+        se.starts_at = day
+        se.ends_at = day
+        se.notify_contacts = self.notify_contacts
+        se.description = self.description
+        se.event_id = self.id
+        se.user_id = self.user_id
+        se.save
+        day = day + 6.months
+      end
+    elsif self.recurring == 'Anually'
+      day = self.starts_at + 1.year
+      end_date = self.recurring_ends_at
+      while day < end_date
+        se = self.sub_events.build
+        se.title = self.title
+        se.all_day = self.all_day
+        se.starts_at = day
+        se.ends_at = day
+        se.notify_contacts = self.notify_contacts
+        se.description = self.description
+        se.event_id = self.id
+        se.user_id = self.user_id
+        se.save
+        day = day + 1.year
+      end
+    end  
       
-    when 'Weekly'
       
-    when 'Bi-weekly'
       
-    when 'Monthly'
-      
-    when 'Quarterly'
-      
-    when 'Semi-Anually'
-      
-    when 'Annually'
-      
-    else
-      #don't recur anything
-    end
-    se1 = self.sub_events.build
-    se1.title = self.title
-    se1.all_day = self.all_day
-    se1.starts_at = self.starts_at + 1.day
-    se1.ends_at = self.starts_at + 1.day
-    se1.notify_contacts = self.notify_contacts
-    se1.description = self.description
-    se1.event_id = self.id
-    se1.save
+    
   end
   
   scope :before, lambda {|end_time| {:conditions => ["ends_at < ?", Event.format_date(end_time)] }}
