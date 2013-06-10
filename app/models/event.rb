@@ -14,7 +14,7 @@ class Event < ActiveRecord::Base
   before_save do
     if self.recurring == 'Daily'
       day = self.starts_at + 1.day
-      end_date = self.recurring_ends_at
+      end_date = self.recurring_ends_at + 1.day 
       while day < end_date
         se = self.sub_events.build
         se.title = self.title
@@ -30,7 +30,7 @@ class Event < ActiveRecord::Base
       end
     elsif self.recurring == 'Daily - Weekdays only'
       day = self.starts_at + 1.day
-      end_date = self.recurring_ends_at
+      end_date = self.recurring_ends_at  + 1.day 
       while day < end_date
         if !day.saturday? && !day.sunday?
           se = self.sub_events.build
@@ -48,7 +48,7 @@ class Event < ActiveRecord::Base
       end
     elsif self.recurring == 'Weekly'
       day = self.starts_at + 1.week
-      end_date = self.recurring_ends_at
+      end_date = self.recurring_ends_at  + 1.day 
       while day < end_date
         se = self.sub_events.build
         se.title = self.title
@@ -64,7 +64,7 @@ class Event < ActiveRecord::Base
       end
     elsif self.recurring == 'Bi-weekly'
       day = self.starts_at + 2.week
-      end_date = self.recurring_ends_at
+      end_date = self.recurring_ends_at  + 1.day 
       while day < end_date
         se = self.sub_events.build
         se.title = self.title
@@ -80,7 +80,7 @@ class Event < ActiveRecord::Base
       end
     elsif self.recurring == 'Monthly'
       day = self.starts_at + 1.month
-      end_date = self.recurring_ends_at
+      end_date = self.recurring_ends_at  + 1.day 
       while day < end_date
         se = self.sub_events.build
         se.title = self.title
@@ -96,7 +96,7 @@ class Event < ActiveRecord::Base
       end
     elsif self.recurring == 'Quarterly'
       day = self.starts_at + 3.months
-      end_date = self.recurring_ends_at
+      end_date = self.recurring_ends_at  + 1.day 
       while day < end_date
         se = self.sub_events.build
         se.title = self.title
@@ -112,7 +112,7 @@ class Event < ActiveRecord::Base
       end
     elsif self.recurring == 'Semi-Anually'
       day = self.starts_at + 6.months
-      end_date = self.recurring_ends_at
+      end_date = self.recurring_ends_at  + 1.day 
       while day < end_date
         se = self.sub_events.build
         se.title = self.title
@@ -128,7 +128,7 @@ class Event < ActiveRecord::Base
       end
     elsif self.recurring == 'Anually'
       day = self.starts_at + 1.year
-      end_date = self.recurring_ends_at
+      end_date = self.recurring_ends_at  + 1.day 
       while day < end_date
         se = self.sub_events.build
         se.title = self.title

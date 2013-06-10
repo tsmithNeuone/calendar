@@ -18,8 +18,8 @@ $(document).ready(function() {
 			$("#event_ends_at_1i").val(date.getFullYear());
 			$("#event_ends_at_2i").val((date.getMonth() + 1));
 			$("#event_ends_at_3i").val(date.getDate());
-	//		$(".ends_at_date_field").hide();
-	//		$(".starts_at_date_field").hide();
+		//	$(".ends_at_date_field").hide();
+		//$(".starts_at_date_field").hide();
 			
 	    	
          },
