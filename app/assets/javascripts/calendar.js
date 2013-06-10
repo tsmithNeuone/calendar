@@ -9,7 +9,7 @@ $(document).ready(function() {
         unselectAuto: true,
         height: 650,
         editable: true,
-        ignoreTimezone: true,
+        ignoreTimezone: false,
         select: function(date) {
 			$("#create_event_dialog").modal('show');
 			$("#event_starts_at_1i").val(date.getFullYear());
@@ -23,9 +23,7 @@ $(document).ready(function() {
 			
 	    	
          },
-         events: {
-        	currentTimezone: 'America/Chicago' // an option!
-    	},
+         
     	slotMinutes: 30,  
    		eventSources: [{  
     		url: '/sub_events',

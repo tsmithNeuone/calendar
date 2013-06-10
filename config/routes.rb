@@ -1,8 +1,8 @@
 Calendar::Application.routes.draw do
   resources :sub_events
 
-
-  resources :contacts
+   
+   resources :contacts
   devise_for :users
   resources :events
   get "calendar/index"

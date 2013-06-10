@@ -24,18 +24,24 @@
     <%= f.datetime_select :ends_at %>
   </div>
   <div class="field">
-    <%= f.label :all_day %><br />
+    <%= f.label :all_day %>
     <%= f.check_box :all_day %>
+    <br/>
   </div>
+  <br/>
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.label :notify_contacts %><br />
+    <%= f.label :notify_contacts %>
     <%= f.check_box :notify_contacts %>
-  </div>
+    </div>
+  <br/>
+    <br/>  
   <div class="actions">
-    <%= f.submit %>
+ <%= f.submit 'Update Event', class: "btn btn-primary" %>
   </div>
+  
+  
 <% end %>

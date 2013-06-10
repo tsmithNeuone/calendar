@@ -1,38 +1,39 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @sub_event.title %>
-</p>
-<p>
-	belongs to:
-	<%= @sub_event.event_id%>
-</p>
-<p>
-  <b>Starts at:</b>
-  <%= @sub_event.starts_at %>
-</p>
-
-<p>
-  <b>Ends at:</b>
-  <%= @sub_event.ends_at %>
-</p>
-
-<p>
-  <b>All day:</b>
-  <%= @sub_event.all_day %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @sub_event.description %>
-</p>
-
-<p>
-  <b>Notify contacts:</b>
-  <%= @sub_event.notify_contacts %>
-</p>
+<section id="tables">
+  <div class="page-header">
+    <h1> <%= @sub_event.title %></h1>
+  </div>
+  
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Starts at: </th>
+        <th>Ends at:</th>
+        <th>All day</th>
+        <th>Description:</th>
+        <th>Notify conatacts:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @sub_event.starts_at.strftime("%A, %B %d at %I:%M %p") %></td>
+        <td><%= @sub_event.ends_at.strftime("%A, %B %d at %I:%M %p") %></td>
+        <td><%= @sub_event.all_day %> </td>
+         <td><%= @sub_event.description %></td>
+        <td><%if @sub_event.notify_contacts%> Yes <%else%> No <%end%></td>
+       
+        
+      </tr>
+     
+    </tbody>
+  </table>
+</section>
 
 
-<%= link_to 'Edit', edit_sub_event_path(@sub_event) %> |
-<%= link_to 'Back', sub_events_path %>
+<p>
+<td><a class="btn btn-primary" <%= link_to 'New Event', new_event_path %></a></td>
+<td><a class="btn btn-primary" <%= link_to 'Edit', edit_sub_event_path(@sub_event) %></a></td>
+<td><a class="btn btn-primary" <%= link_to 'Destroy', sub_event_path, :confirm => 'Are you sure?', :method => :delete %></a></td>
+<br>
+<br>
+<td><a class="btn btn-primary" <%= link_to 'Back to Calendar', calendar_index_path %></a></td>
+</p>

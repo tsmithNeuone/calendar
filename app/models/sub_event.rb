@@ -13,8 +13,8 @@ class SubEvent < ActiveRecord::Base
       :id => self.id,
       :title => self.title,
       :description => self.description || "",
-      :start => starts_at.rfc822,
-      :end => ends_at.rfc822,
+      :start => (starts_at + 5.hours),
+      :end => (ends_at + 5.hours),
       :allDay => self.all_day,
       :recurring => false,
       :url => Rails.application.routes.url_helpers.sub_event_path(id)

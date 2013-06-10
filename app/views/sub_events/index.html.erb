@@ -1,23 +1,32 @@
-<h1>Listing sub_events</h1>
-
-<table>
+<section id="tables">
+  <div class="page-header">
+  	<link rel="shortcut icon" type="image/x-icon" href="/assets/images/13173095-calendar-vector-icon.jpg">
+<h1>Recurring Events</h1>
+ </div>
+<table class="table table-bordered table-striped table-hover">
+   <thead>
   <tr>
     <th>Title</th>
-    <th>Starts at</th>
-    <th>Ends at</th>
+    <th>Starts on</th>
+    <th>Ends on</th>
     <th>All day</th>
     <th>Description</th>
-    <th>Notify contacts</th>
-    <th></th>
+    <th>Notify Contacts</th>
     <th></th>
     <th></th>
   </tr>
+</thead>
+    <tbody>
+
+
+
+   
 
 <% @sub_events.each do |sub_event| %>
   <tr>
     <td><%= sub_event.title %></td>
-    <td><%= sub_event.starts_at %></td>
-    <td><%= sub_event.ends_at %></td>
+    <td><%= sub_event.starts_at.strftime("%A, %B %d at %I:%M %p")%></td>
+    <td><%= sub_event.ends_at.strftime("%A, %B %d at %I:%M %p")%></td>
     <td><%= sub_event.all_day %></td>
     <td><%= sub_event.description %></td>
     <td><%= sub_event.notify_contacts %></td>
@@ -30,4 +39,8 @@
 
 <br />
 
-<%= link_to 'New Sub event', new_sub_event_path %>
+<td><a class="btn btn-primary" <%= link_to 'New Event', new_event_path %></a></td>
+<br />
+<br/>
+<td><a class="btn btn-primary" <%= link_to 'View Calendar', calendar_index_path %></a></td>
+<br/>
