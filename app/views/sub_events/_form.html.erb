@@ -15,28 +15,40 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :starts_at %><br />
-    <%= f.datetime_select :starts_at %>
-  </div>
-  <div class="field">
-    <%= f.label :ends_at %><br />
-    <%= f.datetime_select :ends_at %>
-  </div>
-  <div class="field">
-    <%= f.label :all_day %>
-    <%= f.check_box :all_day %>
-    <br/>
+<div class="field">
+		<p>
+		    <%= f.label :starts_at %>
+		    <div class="starts_at_date_field">
+		    	<%= f.date_select :starts_at %>
+			</div>
+		    <%= f.time_select :starts_at, :ignore_date => true,:ampm => true, :minute_step => 15 %>
+		</p>
+	</div>
+	<div class="field">
+    <%= f.label :ends_at %>
+    <p>
+		<div class="ends_at_date_field">
+    		<%= f.date_select :ends_at %>
+    	</div>
+    	<%= f.time_select :ends_at, :ignore_date => true, :ampm => true, :minute_step => 15 %>
+    </p>
+	</div>
+  	<p>
+		<div class="field">
+			<%= f.check_box :all_day %>
+		    <%= f.label :all_day, :class => "checkbox inline" %>
+		</div>
+	</p>
   </div>
   <br/>
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>
-  <div class="field">
-    <%= f.label :notify_contacts %>
-    <%= f.check_box :notify_contacts %>
-    </div>
+ <div class="field">
+			<%= f.check_box :notify_contacts %>
+	    	<%= f.label :notify_contacts, :class => "checkbox inline" %>
+		</div>
   <br/>
     <br/>  
   <div class="actions">

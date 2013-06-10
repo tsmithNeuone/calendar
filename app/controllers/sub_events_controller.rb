@@ -1,6 +1,7 @@
 class SubEventsController < ApplicationController
   # GET /sub_events
   # GET /sub_events.json
+  before_filter :authenticate_user!
   def index
     
 
